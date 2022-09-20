@@ -53,20 +53,19 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div class="relative pb-20 pl-5 pr-5 lg:px-20 lg:grid sm:mx-5 sm:grid-cols-1 lg:grid-cols-12 bg-gray-900">
+      <div className="relative pb-20 pl-5 pr-5 bg-gray-900 lg:px-20 lg:grid sm:mx-5 sm:grid-cols-1 lg:grid-cols-12">
         <div className="flex flex-row-reverse items-center p-3 mt-16 mb-5 bg-gray-800 rounded-lg lg:col-span-4">
           <RiSearchLine className="text-gray-400" />
           <input
             value={searchString}
             onChange={(e) => setSearchString(e.target.value)}
-            inputP
             type="text"
             placeholder="لێگەریان"
             className="w-full mr-3 text-right text-white bg-transparent outline-none "
           />
         </div>
-        <div class="col-span-11  ">
-          <div class="grid gap-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
+        <div className="col-span-11 ">
+          <div className="grid gap-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
             {filteredPosts?.slice(0, index).map((post) => (
               <div key={post._id}>
                 <Card post={post} />
@@ -75,9 +74,8 @@ export default function Home({ posts }) {
           </div>
         </div>
         {width > 767 ? (
-          <div class="flex">
+          <div className="flex">
             <div
-              onClick={() => setOpen(!open)}
               className={`${
                 open ? 'w-3/12' : 'w-24'
               } fixed top-0 right-0  duration-300 border-l-2 border-gray-800  h-full bg-gray-900`}
@@ -92,7 +90,7 @@ export default function Home({ posts }) {
             </div>
           </div>
         ) : (
-          <div class="flex">
+          <div className="flex">
             <div
               className={`${
                 open
@@ -117,7 +115,7 @@ export default function Home({ posts }) {
           <button
             onClick={loadMore}
             type="button"
-            class=" mt-16 flex group   items-center"
+            className="flex items-center mt-16 group"
           >
             <HiPlus className="mr-2 text-lg text-gray-400 duration-150 group-hover:text-cyan-500" />
             <span className="text-gray-400 duration-150 group-hover:text-cyan-500">

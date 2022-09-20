@@ -1,10 +1,6 @@
 import groq from 'groq';
-import Image from 'next/image';
-import { urlFor } from '../../lib/sanity';
 import { getClient } from '../../lib/sanity.server';
-import { PortableText } from '@portabletext/react';
 import { Card } from '../../components';
-import { useEffect } from 'react';
 
 const Category = ({ categories }) => {
   console.log(categories);

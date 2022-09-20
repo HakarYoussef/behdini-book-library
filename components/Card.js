@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef } from 'react';
-import { useEffect, useState } from 'react';
-import { AiFillDislike, AiFillLike } from 'react-icons/ai';
+import { useState } from 'react';
 import { urlFor } from '../lib/sanity';
 
 const Card = ({ post }) => {
@@ -32,14 +30,14 @@ const Card = ({ post }) => {
   // };
 
   return !post ? (
-    <div class="p-1 h-96  text-right shadow-xl bg-gradient-to-r from-pink-500 via-red-500 to-cyan-300 transition ease-in-out duration-150 hover:shadow-cyan-500 rounded-2xl">
-      <div class="block p-3 h-full  bg-gray-800 sm:p-3 rounded-xl" href="">
+    <div className="p-1 text-right transition duration-150 ease-in-out shadow-xl h-96 bg-gradient-to-r from-pink-500 via-red-500 to-cyan-300 hover:shadow-cyan-500 rounded-2xl">
+      <div className="block h-full p-3 bg-gray-800 sm:p-3 rounded-xl" href="">
         <div className="relative w-full h-48 rounded-xl">
           <div className="bg-gray-700 animate-pulse h-52"></div>
         </div>
 
-        <div class="mt-6  sm:pl-8 flex flex-col  items-end ">
-          <div class="text-2xl my-2 font-uni font-medium text-white">
+        <div className="flex flex-col items-end mt-6 sm:pl-8 ">
+          <div className="my-2 text-2xl font-medium text-white font-uni">
             <div className="h-5 bg-gray-700 animate-pulse w-52"></div>
           </div>
 
@@ -61,8 +59,8 @@ const Card = ({ post }) => {
       </div>
     </div>
   ) : (
-    <div class="p-1  h-96 text-right shadow-xl bg-gradient-to-r from-pink-500 via-red-500 to-cyan-300 transition ease-in-out duration-150 hover:shadow-cyan-500 rounded-2xl">
-      <div class="block p-3 h-full   bg-gray-800 sm:p-3 rounded-xl" href="">
+    <div className="p-1 text-right transition duration-150 ease-in-out shadow-xl h-96 bg-gradient-to-r from-pink-500 via-red-500 to-cyan-300 hover:shadow-cyan-500 rounded-2xl">
+      <div className="block h-full p-3 bg-gray-800 sm:p-3 rounded-xl" href="">
         <div className="relative w-full h-48 rounded-xl">
           <Link href={`/book/${post.slug.current}`}>
             <Image
@@ -76,15 +74,15 @@ const Card = ({ post }) => {
             />
           </Link>
         </div>
-        <div class="mt-5  h-32  flex flex-col items-end sm:pl-8  ">
-          <h5 class="text-2xl flex-1 text-right leading-relaxed font-uni font-medium text-white">
+        <div className="flex flex-col items-end h-32 mt-5 sm:pl-8 ">
+          <h5 className="flex-1 text-2xl font-medium leading-relaxed text-right text-white font-uni">
             {post.title.length > 28 ? (
               <> {post.title.slice(0, 28)} ...</>
             ) : (
               post.title
             )}
           </h5>
-          <p class="mt-2 w-full  text-base font-speda text-gray-300">
+          <p className="w-full mt-2 text-base text-gray-300 font-speda">
             {post.authorName ? (
               <span className=" text-cyan-500">
                 <Link href={`/author/${post?.authorSlug?.current}`}>

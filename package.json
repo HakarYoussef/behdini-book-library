@@ -1,11 +1,14 @@
 {
   "name": "behdini-book-library",
+  "homepage": "https://HakarYoussef.github.io/behdini-book-library",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -14,6 +17,7 @@
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "antd": "^4.23.2",
+    "gh-pages": "^4.0.0",
     "groq": "^2.33.2",
     "lodash": "^4.17.21",
     "next": "12.3.0",

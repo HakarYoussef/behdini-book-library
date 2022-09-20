@@ -2,7 +2,6 @@ import { RiTrophyLine } from 'react-icons/ri';
 import { BiCategoryAlt } from 'react-icons/bi';
 import { HiChevronDown } from 'react-icons/hi';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const SideMenu = ({ categories, open, width }) => {
   let filteredObject = categories.filter(
@@ -12,7 +11,7 @@ const SideMenu = ({ categories, open, width }) => {
 
   return (
     <div className="">
-      <nav class="flex flex-col items-end  mt-6 space-y-1  ">
+      <nav className="flex flex-col items-end mt-6 space-y-1 ">
         <div className="mr-5">
           <Link href={'/'}>
             {open ? (
@@ -323,10 +322,10 @@ const SideMenu = ({ categories, open, width }) => {
               />
             </summary>
             {filteredObject.map((category) => (
-              <>
-                {category.categories.map((c) => (
+              <div key={category.id}>
+                {category.categories.map((c, i) => (
                   <nav
-                    key={c.id}
+                    key={i}
                     className={`${
                       !open && 'hidden'
                     } mt-1.5  ml-8 flex flex-col`}
@@ -343,7 +342,7 @@ const SideMenu = ({ categories, open, width }) => {
                     </a>
                   </nav>
                 ))}
-              </>
+              </div>
             ))}
           </details>
         </div>

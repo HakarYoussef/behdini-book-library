@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Book = ({ posts }) => {
   const [likes, setLikes] = useState(posts?.likes);
-
+  console.log(posts);
   const addLike = async () => {
     const res = await fetch('/api/handle-like', {
       method: 'POST',
@@ -83,7 +83,7 @@ const Book = ({ posts }) => {
                   href={`${posts.downloadLink}`}
                   target="_blank"
                   rel="noreferrer"
-                  class="inline-block w-full lg:w-96 md:w-64  px-8   text-center py-3 text-lg font-bold font-speda text-cyan-500 border rounded transition border-current hover:scale-105 hover:shadow-xl active:text-cyan-400 focus:outline-none focus:ring"
+                  className="inline-block w-full px-8 py-3 text-lg font-bold text-center transition border rounded lg:w-96 md:w-64 font-speda text-cyan-500 hover:scale-105 hover:shadow-xl active:text-cyan-400 focus:outline-none focus:ring"
                 >
                   داونلۆد
                 </a>
