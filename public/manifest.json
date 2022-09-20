@@ -1,0 +1,32 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#0f172a",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "behdini booklib",
+    "description": "\u0626\u06ce\u06a9\u06d5\u0645\u06cc\u0646 \u067e\u06d5\u0631\u062a\u0648\u0648\u06a9\u062e\u0627\u0646\u0627 \u0626\u0648\u0646\u06b5\u0627\u06cc\u0646 \u0644 \u0628\u06d5\u0647\u062f\u06cc\u0646\u0627\u0646",
+    "short_name": "BLIB",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
