@@ -289,14 +289,15 @@ const SideMenu = ({ categories, open, width }) => {
             ) : (
               open && <RiTrophyLine className="text-2xl" />
             )}
-
-            <span
-              className={`${
-                !open && 'hidden'
-              } mr-3 text-base font-bold font-speda`}
-            >
-              باشترین
-            </span>
+            <Link href={'/mostDownloaded'}>
+              <span
+                className={`${
+                  !open && 'hidden'
+                } mr-3 text-base font-bold font-speda`}
+              >
+                زۆرترین داگرتن{' '}
+              </span>
+            </Link>
           </a>
 
           <details className=" group" open>

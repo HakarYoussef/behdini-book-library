@@ -45,7 +45,13 @@ const Book = ({ posts }) => {
                 <span className="font-speda">:نڤیسەرێ پەرتووکێ</span>
                 <span className="mb-5 mr-3 font-semibold text-pink-600 underline font-speda">
                   <Link href={`/author/${posts.authorSlug.current}`}>
-                    {posts.authorName ? posts.authorName : '---'}
+                    {posts.authorName ? (
+                      <Link href={`/author/${posts?.authorSlug?.current}`}>
+                        {posts.authorName}
+                      </Link>
+                    ) : (
+                      '---'
+                    )}
                   </Link>
                 </span>
               </div>

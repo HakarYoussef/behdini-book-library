@@ -5,7 +5,7 @@ import { urlFor } from '../lib/sanity';
 import { HiDownload } from 'react-icons/hi';
 
 const Card = ({ post }) => {
-  const [downloads, setDownloads] = useState(post?.downloads);
+  const [downloads, setDownloads] = useState(`${post?.downloads}`);
 
   const handleDownloads = async () => {
     const res = await fetch('/api/handle-downloads', {

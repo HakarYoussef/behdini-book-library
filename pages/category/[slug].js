@@ -13,7 +13,7 @@ const Category = ({ categories }) => {
               return (
                 <div
                   key={c.id}
-                  className="flex flex-row-reverse items-center h-12 mt-20 mr-20 text-4xl text-white border-r-8 border-pink-600 font-uni"
+                  className="flex flex-row-reverse items-center h-12 mt-20 text-4xl text-white border-r-8 border-pink-600 lg:mr-20 sm:mr-5 font-uni"
                 >
                   <h3 className="mr-4">{c.title}</h3>
                 </div>
@@ -22,7 +22,7 @@ const Category = ({ categories }) => {
           })}
         </div>
 
-        <div className="z-10 grid col-span-10 gap-5 mx-5 mt-5 mb-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
+        <div className="z-10 grid col-span-10 gap-5 mx-5 mt-40 mb-5 sm:mt-0 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
           {categories?.map((category) => (
             <div key={category._id}>
               <Card post={category} />
@@ -47,6 +47,7 @@ const query = groq`*[_type == 'post' && $slug in categories[]->slug.current]{
     body,
     mainImage,
     slug,
+    downloads,
     downloadLink,
     likes,
 }
