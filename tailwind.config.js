@@ -13,6 +13,7 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '10px 10px 0 5px rgba(34, 211, 238, 1)',
+        '2xl': '0 0 40px 96px rgba(0, 0, 0, 0.35)',
       },
     },
   },

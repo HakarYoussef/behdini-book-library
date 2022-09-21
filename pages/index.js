@@ -7,7 +7,7 @@ import groq from 'groq';
 import { useState, useEffect } from 'react';
 
 export default function Home({ posts }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(40);
   const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -50,7 +50,7 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="relative pb-20 pl-5 pr-5 bg-gray-900 lg:px-20 lg:grid sm:mx-5 sm:grid-cols-1 lg:grid-cols-12">
+      <div className="relative z-50 pb-20 pl-5 pr-5 bg-gray-900 lg:px-20 lg:grid sm:mx-5 sm:grid-cols-1 lg:grid-cols-12">
         <div className="flex flex-row-reverse items-center p-3 mt-16 mb-5 bg-gray-800 rounded-lg lg:col-span-4">
           <RiSearchLine className="text-gray-400" />
           <input
@@ -75,7 +75,7 @@ export default function Home({ posts }) {
             <div
               className={`${
                 open ? 'w-3/12' : 'w-24'
-              } fixed top-0 right-0  duration-300 border-l-2 border-gray-800  h-full bg-gray-900`}
+              } fixed  top-0 right-0  duration-300 border-l-2 border-gray-800  h-full bg-gray-900`}
             >
               <HiChevronLeft
                 onClick={() => setOpen(!open)}
@@ -91,7 +91,7 @@ export default function Home({ posts }) {
             <div
               className={`${
                 open
-                  ? 'w-10/12  border-l-2 border-gray-800 bg-gray-900'
+                  ? 'w-80  shadow-2xl border-l-2 border-gray-800 bg-gray-900'
                   : 'w-3.5'
               } fixed top-0 right-0  duration-300   h-full `}
             >
