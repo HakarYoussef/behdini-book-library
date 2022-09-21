@@ -55,14 +55,10 @@ export default {
       type: 'blockContent',
     },
     {
-      name: 'likes',
-      title: 'likes',
+      name: 'downloads',
+      title: 'داگرتن',
       type: 'number',
-    },
-    {
-      name: 'unLikes',
-      title: 'unLikes',
-      type: 'number',
+      readOnly: true,
     },
     {
       name: 'prepare',
@@ -76,9 +72,24 @@ export default {
     },
   ],
   initialValue: {
-    likes: 0,
+    body: '------------------------------',
   },
   initialValue: {
-    unLikes: 0,
+    translator: '---',
+  },
+  initialValue: {
+    author: '---',
+  },
+  initialValue: {
+    title: '---',
+  },
+  initialValue: {
+    downloads: 0,
+  },
+  initialValue: {
+    pageNumber: 0,
+  },
+  initialValue: {
+    prepare: '---',
   },
 };

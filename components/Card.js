@@ -2,32 +2,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { urlFor } from '../lib/sanity';
+import { HiDownload } from 'react-icons/hi';
 
 const Card = ({ post }) => {
-  const [likes, setLikes] = useState(post?.likes);
-  const [unLikes, setUnLikes] = useState(post?.likes);
+  const [downloads, setDownloads] = useState(post?.downloads);
 
-  const addLike = async () => {
-    const res = await fetch('/api/handle-like', {
+  const handleDownloads = async () => {
+    const res = await fetch('/api/handle-downloads', {
       method: 'POST',
       body: JSON.stringify({ _id: post._id }),
     }).catch((error) => console.log(error));
-
     const data = await res.json();
-
-    setLikes(data.likes);
+    setDownloads(data.downloads);
   };
-
-  // const removeLike = async () => {
-  //   const res = await fetch('/api/handle-unlike', {
-  //     method: 'POST',
-  //     body: JSON.stringify({ _id: post._id }),
-  //   }).catch((error) => console.log(error));
-
-  //   const data = await res.json();
-
-  //   setUnLikes(data.unLikes);
-  // };
 
   return !post ? (
     <div className="p-1 text-right transition duration-150 ease-in-out shadow-xl h-96 bg-gradient-to-r from-pink-500 via-red-500 to-cyan-300 hover:shadow-cyan-500 rounded-2xl">
@@ -44,17 +31,15 @@ const Card = ({ post }) => {
           <div class="text-2xl my-2 font-uni font-medium text-white">
             <div className="h-5 bg-gray-700 animate-pulse w-44"></div>
           </div>
-          <div className="flex flex-row-reverse items-center mt-5 text-3xl cursor-pointer">
-            {/* <div className="flex items-center">
-              <AiFillLike onClick={addLike} className="text-gray-600" />
-              <p className="ml-2 text-base text-gray-500">{likes}</p>
-            </div> */}
-
-            {/* <div className="flex items-center mr-5">
-              <AiFillDislike onClick={removeLike} className="text-gray-600" />
-              <p className="ml-2 text-base text-gray-500">{unLikes}</p>
-            </div> */}
-          </div>
+          <a href={post.downloadLink} target="_blank" rel="noreferrer">
+            <div className="flex flex-row-reverse items-end mt-3 cursor-pointer ">
+              <HiDownload
+                onClick={handleDownloads}
+                className="text-xl text-gray-500"
+              />
+              <p className="mr-1 text-base text-gray-500">{downloads}</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -74,7 +59,8 @@ const Card = ({ post }) => {
             />
           </Link>
         </div>
-        <div className="flex flex-col items-end h-32 mt-5 sm:pl-8 ">
+
+        <div className="flex flex-col items-end justify-end flex-1 h-32 mt-5 sm:pl-8 ">
           <h5 className="flex-1 text-2xl font-medium leading-relaxed text-right text-white font-uni">
             {post.title.length > 28 ? (
               <> {post.title.slice(0, 28)} ...</>
@@ -94,17 +80,16 @@ const Card = ({ post }) => {
               post.prepare
             )}
           </p>
-          <div className="flex flex-row-reverse items-center mt-5 text-3xl cursor-pointer">
-            {/* <div className="flex items-center">
-              <AiFillLike onClick={addLike} className="text-gray-600" />
-              <p className="ml-2 text-base text-gray-500">{likes}</p>
-            </div> */}
 
-            {/* <div className="flex items-center mr-5">
-              <AiFillDislike onClick={removeLike} className="text-gray-600" />
-              <p className="ml-2 text-base text-gray-500">{unLikes}</p>
-            </div> */}
-          </div>
+          <a href={post.downloadLink} target="_blank" rel="noreferrer">
+            <div className="flex flex-row-reverse items-end mt-3 cursor-pointer ">
+              <HiDownload
+                onClick={handleDownloads}
+                className="text-xl text-gray-500"
+              />
+              <p className="mr-1 text-base text-gray-500">{downloads}</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

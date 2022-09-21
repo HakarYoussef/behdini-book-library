@@ -1,16 +1,13 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { RiSearchLine } from 'react-icons/ri';
 import { HiChevronLeft, HiPlus } from 'react-icons/hi';
 import { Card, SideMenu } from '../components';
 import { getClient } from '../lib/sanity.server';
 import groq from 'groq';
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { slice } from 'lodash';
 
 export default function Home({ posts }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(40);
   const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -138,9 +135,9 @@ export async function getStaticProps({ preview = false }) {
     "categories": categories[]->{id, title,slug},
     mainImage,
     slug,
-    likes,
-    unLikes,
+    downloads,
     prepare,
+    downloadLink,
   }
   `);
 

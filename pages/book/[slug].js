@@ -5,19 +5,19 @@ import { getClient } from '../../lib/sanity.server';
 import { PortableText } from '@portabletext/react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { HiDownload } from 'react-icons/hi';
 
 const Book = ({ posts }) => {
-  const [likes, setLikes] = useState(posts?.likes);
-  console.log(posts);
-  const addLike = async () => {
-    const res = await fetch('/api/handle-like', {
+  const [downloads, setDownloads] = useState(posts?.downloads);
+  console.log(posts?.downloads);
+
+  const handleDownloads = async () => {
+    const res = await fetch('/api/handle-downloads', {
       method: 'POST',
       body: JSON.stringify({ _id: posts._id }),
     }).catch((error) => console.log(error));
-
     const data = await res.json();
-
-    setLikes(data.likes);
+    setDownloads(data.downloads);
   };
 
   return (
@@ -79,21 +79,30 @@ const Book = ({ posts }) => {
                 </span>
               </div>
               <div className="w-full mt-10 md:w-fit">
+                <div className=""></div>
+
                 <a
+                  onClick={handleDownloads}
                   href={`${posts.downloadLink}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block w-full px-8 py-3 text-lg font-bold text-center transition border rounded lg:w-96 md:w-64 font-speda text-cyan-500 hover:scale-105 hover:shadow-xl active:text-cyan-400 focus:outline-none focus:ring"
+                  className="flex items-center justify-between w-full px-8 py-3 text-lg font-bold text-center transition border rounded lg:w-96 md:w-64 font-speda text-cyan-500 hover:scale-105 hover:shadow-xl active:text-cyan-400 focus:outline-none focus:ring"
                 >
-                  داونلۆد
+                  <HiDownload className="text-xl text-gray-500" />
+                  <h3> داونلۆد</h3>{' '}
                 </a>
               </div>
-              {/* <button
-                onClick={addLike}
-                className="px-20 py-3 m-5 text-xl text-white bg-blue-600 cursor-pointer"
-              >
-                like: {likes}
-              </button> */}
+
+              <div className="flex flex-row-reverse items-center mt-5 text-3xl cursor-pointer">
+                <div className="flex flex-row-reverse items-center ">
+                  <span className="text-base text-white font-speda">
+                    :ژمارا داگرتنا{' '}
+                  </span>
+                  <p className="mr-2 text-base font-bold text-white">
+                    {downloads}
+                  </p>
+                </div>
+              </div>
 
               <div className="flex flex-col items-end m-10 text-right lg:m-20">
                 <span className="text-gray-400 font-speda">
@@ -127,7 +136,8 @@ slug,
 downloadLink,
 likes,
 prepare,
-pageNumber
+pageNumber,
+downloads
 }
 `;
 
