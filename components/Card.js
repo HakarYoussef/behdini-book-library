@@ -37,7 +37,11 @@ const Card = ({ post }) => {
                 onClick={handleDownloads}
                 className="text-xl text-gray-500"
               />
-              <p className="mr-1 text-base text-gray-500">{downloads}</p>
+              {downloads === 'null' ? (
+                <p className="mr-1 text-base text-gray-500">0</p>
+              ) : (
+                <p className="mr-1 text-base text-gray-500">{downloads}</p>
+              )}
             </div>
           </a>
         </div>
@@ -69,7 +73,7 @@ const Card = ({ post }) => {
             )}
           </h5>
           <p className="w-full mt-2 text-base text-gray-300 font-speda">
-            {post.authorName ? (
+            {post.authorName !== '-' ? (
               <span className=" text-cyan-500">
                 <Link href={`/author/${post?.authorSlug?.current}`}>
                   {post.authorName}
@@ -87,7 +91,11 @@ const Card = ({ post }) => {
                 onClick={handleDownloads}
                 className="text-xl text-gray-500"
               />
-              <p className="mr-1 text-base text-gray-500">{downloads}</p>
+              {downloads === 'null' ? (
+                <p className="mr-1 text-base text-gray-500">0</p>
+              ) : (
+                <p className="mr-1 text-base text-gray-500">{downloads}</p>
+              )}
             </div>
           </a>
         </div>

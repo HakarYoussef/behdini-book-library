@@ -44,15 +44,19 @@ const Book = ({ posts }) => {
               <div className="flex flex-row-reverse text-right text-white">
                 <span className="font-speda">:نڤیسەرێ پەرتووکێ</span>
                 <span className="mb-5 mr-3 font-semibold text-pink-600 underline font-speda">
-                  <Link href={`/author/${posts.authorSlug.current}`}>
-                    {posts.authorName ? (
-                      <Link href={`/author/${posts?.authorSlug?.current}`}>
-                        {posts.authorName}
-                      </Link>
-                    ) : (
-                      '---'
-                    )}
-                  </Link>
+                  {posts.authorName === '-' ? (
+                    posts.authorName
+                  ) : (
+                    <Link href={`/author/${posts.authorSlug.current}`}>
+                      {posts.authorName ? (
+                        <Link href={`/author/${posts?.authorSlug?.current}`}>
+                          {posts.authorName}
+                        </Link>
+                      ) : (
+                        '---'
+                      )}
+                    </Link>
+                  )}
                 </span>
               </div>
               <div className="flex flex-row-reverse text-right text-white">
@@ -104,9 +108,13 @@ const Book = ({ posts }) => {
                   <span className="text-base text-white font-speda">
                     :ژمارا داگرتنا{' '}
                   </span>
-                  <p className="mr-2 text-base font-bold text-white">
-                    {downloads}
-                  </p>
+                  {downloads === 'null' ? (
+                    <p className="mr-2 text-base font-bold text-white">0</p>
+                  ) : (
+                    <p className="mr-2 text-base font-bold text-white">
+                      {downloads}
+                    </p>
+                  )}
                 </div>
               </div>
 

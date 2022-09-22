@@ -8,7 +8,7 @@ const Author = ({ authors }) => {
     <>
       <div className="relative grid w-full h-screen text-2xl md:grid-cols-10">
         <div className="w-full h-0 col-span-10 text-right bg-cyan-700">
-          {authors?.map((author) => {
+          {authors?.slice(0, 1).map((author) => {
             return (
               <div
                 key={author.id}
